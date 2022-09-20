@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> 2nd_Week_Saydana </title>
+    <style>
+        body {
+            background-color: rgb(255, 217, 170);
+            margin: auto;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+        }
+        .center {
+            margin: auto;
+            width: 850px;
+            padding: 10px;
+            text-align: center;
+        }
+        #vol
+        {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d59c8c;
+            outline: none;
+        }
+        #vol::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: rgb(219, 99, 56);
+        }
+        #ockBut{
+            border-radius: 50%;
+            background-color: rgb(219, 99, 56);
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+        }
+    </style>
+</head>
+<body>
+    <img id="forest" src="fall.jpeg">
+    <script type="text/javascript">
+        var state = false;
+        forest.onclick = function()
+        {
+            if(!state) {
+                forest.src = "winter.jpeg";
+                state = true;
+            }
+            else {
+                forest.src = "fall.jpeg";
+                state = false;
+            }
+        }
+    </script>
+
+    <div class="center"> 
+        <button id="ockBut">PLAY</button>
+        <input id="vol" type="range" max="80" min="0" value="80">
+        <audio id="ockSnd" src="ock.mp3"></audio>
+    </div>
+    <script type="text/javascript">
+        vol.oninput = function(){
+            ockSnd.volume = vol.value / 100;
+        }
+        var music = false;
+        ockBut.onclick = function(){
+            if(!music){
+                ockSnd.play();
+                music = true;
+            }
+            else {
+                ockSnd.pause();
+                music = false;
+            }
+        }
+    </script>
+</body>
+</html>
